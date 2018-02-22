@@ -1,0 +1,28 @@
+<?php
+$title = 'Delete news';
+$this->headTitle($title);
+?>
+
+<?php if (empty($news)==false): ?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>Are you sure that you want to delete
+'<?php echo $this->escapeHtml($news->getTitle()); ?>' by
+'<?php echo $this->escapeHtml($news->getContent()); ?>'?
+</p>
+<?php
+$url = $this->url('news', array(
+'action' => 'delete',
+'id' => $this->id,
+));
+?>
+
+<form action="<?php echo $url; ?>" method="post">
+<div>
+<input type="hidden" name="id" value="<?php echo (int) $news->getId(); ?>" />
+<input type="submit" name="del" value="Yes" />
+<input type="submit" name="del" value="No" />
+</div>
+</form>
+<?php else: ?>
+指定的记录不存在
+<?php endif ?>

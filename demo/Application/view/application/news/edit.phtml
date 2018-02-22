@@ -1,0 +1,11 @@
+<?php
+$title = 'Edit news';
+$this->headTitle($title);
+?>
+<?php if(empty($news)==false){?>
+<div>
+<?php echo $news->getId() . ' -> ' .$news->getTitle() . ' -> ' . $news->getContent();?>
+</div>
+<?php }else{?>
+指定的记录不存在
+<?php }?>
